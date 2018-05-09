@@ -57,6 +57,15 @@ input("Aperte Enter para continuar...")
 # TAREFA 3
 # TODO: Crie uma função para adicionar as colunas(features) de uma lista em outra lista, na mesma ordem
 def column_to_list(data, index, as_type=None):
+    """
+        Função que extrai em forma de lista uma coluna de um conjunto de dados
+        Argumentos:
+            data: conjunto de dados
+            index: número da coluna para extração
+            as_type: força a conversão de tipo caso solicitado - opcional
+        Retorna:
+            Uma string com o genero mais popular
+        """
     column_list = []
     # Dica: Você pode usar um for para iterar sobre as amostras, pegar a feature pelo seu índice,
     # e dar append para uma lista
@@ -101,6 +110,13 @@ input("Aperte Enter para continuar...")
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos,
 # 15 Femininos)
 def count_gender(data_list):
+    """
+    Função que conta gêneros
+    Argumentos:
+        data_list: lista de dados para filtragem
+    Retorna:
+        Uma lista onde primeiro valor é a contagem para genero feminio e o segundo valor genero masculino
+    """
     male = 0
     female = 0
     for line in data_list:
@@ -129,6 +145,13 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função que pegue o gênero mais popular, e retorne este gênero como uma string.
 # Esperamos ver "Masculino", "Feminino", ou "Igual" como resposta.
 def most_popular_gender(data_l):
+    """
+    Função que retorna gênero mais poular
+    Argumentos:
+        data_l: lista de dados para filtragem
+    Retorna:
+        Uma string com o genero mais popular
+    """
     answer = ""
     genders = (gender.lower() for gender in column_to_list(data_l, 6))
     c = Counter(genders)
@@ -170,6 +193,13 @@ print("\nTAREFA 7: Verifique o gráfico!")
 
 
 def count_user_types(data_l):
+    """
+    Função para contar os tipos dos usuários
+    Argumentos:
+        data_l: lista de dados para filtragem
+    Retorna:
+        Uma tupla de quantidas para para customer, subscriber
+    """
     subscriber = 0
     customer = 0
     for line in data_l:
@@ -328,6 +358,11 @@ answer = "yes"
 
 
 def count_items(column_list):
+    """
+    Conta os items
+    :param members: Lista os itens para contagem
+    :return: uma tupla com 2 valores, primeiro valor é a lista de tipos e o segundo a quantidade
+    """
     item_types_and_count = defaultdict(int)
     for item in column_list:
         item_types_and_count[item] += 1
